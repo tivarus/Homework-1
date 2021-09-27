@@ -5,39 +5,66 @@
 
 int main() {
     char number[N];
-    gets(number); //вводим число в массив
-    int i = 0;
-        if((number[i] != '.') & (number[i] != ',') & (strlen(number) < N)) {
-            //задаем оператор if, if выдает ошибку если число слишком большое или в его начале стоит .(,)
-            while((number[i] != '.') & (number[i] != ',')) {
-                // последовательно перебираем все числа до точки и записываем их в массив
-                if(number[i] != '\0') {
-                    i = i+1;
-                    number[i] = number[i];
-                }
-                else {
-                    //если число задано без точки то выдает ошибку
-                    break;
-                }
-            }
-            if((number[i+1] != '\0') &&((number[i+1] != '.') & (number[i+1] != ',')))  {
-                    //если в числе две и более точки то выдаст ошибку
-                number[i] = '|';
-                i = i+1;
-                while(number[i] != '\0') {
-                    //перебираем оставшееся число до \0 и записываем значения в массив
-                    i = i+1;
-                    number[i] = number[i];
-                }
-                puts(number);
-                    //выводим получившуюся строку
-            }
-            else {
-            puts(err);
-            }
+    gets(number);
+    int i = 0, b;
+        if(number[i] != '.' && number[i] != ',' && strlen(number) < N) {
         }
         else {
-            puts(err);
+            b = 1;
         }
+        while(number[i] != '.' && number[i] != ',' && b != 1) {
+            switch (number[i]) {
+                case '\0':
+                b = 1;
+                break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    i = i+1;
+                    break;
+                default:
+                    b = 1;
+                    break;
+            }
+        }
+        number[i] = '|';
+        i = i+1;
+        if (number[i] != '\0') {
+        } 
+        else {
+            b = 1;
+        }
+        while(number[i] != '\0' && b != 1) {
+           switch (number[i]) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    i = i+1;
+                    break;
+                default:
+                    b = 1;
+                    break;
+                }
+            } 
+            if (b !=1) {
+                puts(number);
+            } 
+            else {
+                puts(err);
+            }
     return 0;
 }
