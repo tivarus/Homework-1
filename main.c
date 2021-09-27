@@ -5,7 +5,7 @@
 
 int main() {
     char number[N];
-    scanf("%s", number); //вводим число в массив
+    gets(number); //вводим число в массив
     int i = 0;
         if((number[i] != '.') & (number[i] != ',') & (strlen(number) < N)) {
             //задаем оператор if, if выдает ошибку если число слишком большое или в его начале стоит .(,)
