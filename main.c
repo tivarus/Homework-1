@@ -4,7 +4,7 @@
 #define err "incorrect number"
 
 int main() {
-    char number[N] = {0};
+    char number[N];
     scanf("%s", number); //вводим число в массив
     int i = 0;
         if((number[i] != '.') & (number[i] != ',') & (strlen(number) < N)) {
