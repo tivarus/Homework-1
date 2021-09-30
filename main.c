@@ -10,6 +10,9 @@ int main() {
     if(number[i] == '.' || number[i] == ',' || strlen(number) > N) {
         b = 1;
     }
+    else if(number[i] == '-') {
+        i = i+1;
+    }
     while(number[i] != '.' && number[i] != ',' && b != 1) {
         switch (number[i]) {
             case '0':
